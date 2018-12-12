@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "This is a test"
+title:  "XebiaLabs assignment"
+author: "Szymon Ozimek"
 ---
 
 # This is a header.
