@@ -1,9 +1,2 @@
----
-layout: post
-title:  "XebiaLabs assignment"
-author: "Szymon Ozimek"
----
-
-# This is a header.
-
-This whole thing will be a **page**.
+title: XebiaLabs assignment
+description: Writing assignment for the Product Marketer position as XebiaLabs.
