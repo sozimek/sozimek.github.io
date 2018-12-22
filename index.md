@@ -1,4 +1,4 @@
-# Introducing DevOps as code.
+# XL Release and XL Deploy: Introducing DevOps as code.
 # The developer-first approach to infrastructure and deployments
 ___
 
@@ -25,6 +25,8 @@ ___
 
 ## Try it out yourself
 Sounds to good to be true? Seeing is believing, and we believe that trying out the platform will rid you of your doubts. Follow the steps below to install the XL DevOps Platform workshop on your machine.
+
+### Set things up
 
 1. Download the workshop.
 
@@ -54,7 +56,7 @@ Sounds to good to be true? Seeing is believing, and we believe that trying out t
     $ sudo mv xl /usr/local/bin
     ```
 
-    *On Mac:*
+    *On macOS:*
     ```bash
     $ curl -LO https://s3.amazonaws.com/xl-cli/bin/8.5.0/darwin-amd64/xl
     $ chmod +x xl
@@ -67,6 +69,18 @@ Sounds to good to be true? Seeing is believing, and we believe that trying out t
 	 $ xl help
 	 ```
 
-7. Aaa. 
+### Perform and example deployment
+
+1. Open the XL Deploy GUI at http://localhost:4516/ (thee password and login are `admin`). In the **Infrastructure** tree, go to the **local-docker** entry and run the **Check Connection** task.
+
+2. Set up the environment:
+
+    ```bash
+	$ cd devops-as-code-workshop-master
+    $ xl apply -f exercise-2/docker-environment.yaml
+    ```
+3. Deploy a package:
+
+    3.1. Bla bla
 
 
