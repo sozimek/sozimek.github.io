@@ -28,35 +28,45 @@ Sounds to good to be true? Seeing is believing, and we believe that trying out t
 
 1. Download the workshop.
 
-```bash
-$ curl -LO https://github.com/xebialabs/devops-as-code-workshop/archive/master.zip
-$ unzip master.zip
-$ cd devops-as-code-workshop-master
-```
+    ```bash
+    $ curl -LO https://github.com/xebialabs/devops-as-code-workshop/archive/master.zip
+    $ unzip master.zip
+    $ cd devops-as-code-workshop-master
+    ```
 
-2. Request [XL Deploy](https://xebialabs.com/products/xl-deploy/trial/) and [XL Release](https://xebialabs.com/products/xl-release/trial/) licenses and copy them to `docker/xl-deploy/default-conf/deployit-license.lic`. 
+2. Get [XL Deploy](https://xebialabs.com/products/xl-deploy/trial/) and [XL Release](https://xebialabs.com/products/xl-release/trial/) licenses and copy them to `docker/xl-deploy/default-conf/deployit-license.lic`. 
 
 3. Start the platform.
 
-```bash
-$ docker-compose up --build
-devops-as-code-workshop_xl-cli_1 exited with code 0
-```
+    ```bash
+    $ docker-compose up --build
+    devops-as-code-workshop_xl-cli_1 exited with code 0
+    ```
 
 4. Open the XL Deploy GUI at http://localhost:4516/ and the XL Release GUI at http://localhost:5516/. The password and login for both are `admin`.
 
 5. Install the XL CLI.
 
-   *On Linux:*
-   ```bash
-   $ curl -LO https://s3.amazonaws.com/xl-cli/bin/8.5.0/linux-amd64/xl
-   $ chmod +x xl
-   $ sudo mv xl /usr/local/bin
-   ```
+    *On Linux:*
+    ```bash
+    $ curl -LO https://s3.amazonaws.com/xl-cli/bin/8.5.0/linux-amd64/xl
+    $ chmod +x xl
+    $ sudo mv xl /usr/local/bin
+    ```
 
-   *On Mac:*
-   ```bash
-   $ curl -LO https://s3.amazonaws.com/xl-cli/bin/8.5.0/darwin-amd64/xl
-   $ chmod +x xl
-   $ sudo mv xl /usr/local/bin
-   ```
+    *On Mac:*
+    ```bash
+    $ curl -LO https://s3.amazonaws.com/xl-cli/bin/8.5.0/darwin-amd64/xl
+    $ chmod +x xl
+    $ sudo mv xl /usr/local/bin
+    ```
+
+6. Verify that everything works:
+
+	 ```bash
+	 $ xl help
+	 ```
+
+7. Aaa. 
+
+
