@@ -1,2 +1,3 @@
-title: XebiaLabs assignment
-description: Writing assignment for the Product Marketer position as XebiaLabs.
+# Introducing DevOps as code
+# The developer-first approach to software ops
+
