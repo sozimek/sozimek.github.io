@@ -96,18 +96,66 @@ Sounds to good to be true? Seeing is believing, and we believe that trying out t
 
     ```bash
     $ docker ps
+    CONTAINER ID        IMAGE                                           COMMAND                  CREATED             STATUS              PORTS                    NAMES
+    b0611ff9ffbb        xebialabsunsupported/rest-o-rant-api            "java -Djava.securit…"   11 seconds ago      Up 10 seconds       8080/tcp                 rest-o-rant-api
+    f80c2b00a88e        xebialabsunsupported/xl-release:8.5.0           "/opt/xebialabs/tini…"   3 days ago          Up About an hour    0.0.0.0:5516->5516/tcp   devops-as-code-workshop_xl-release_1
+    a99c31ddd458        tecnativa/docker-socket-proxy:latest            "/docker-entrypoint.…"   3 days ago          Up About an hour    2375/tcp                 devops-as-code-workshop_dockerproxy_1
+    68a5c6439540        xebialabsunsupported/xl-deploy:8.5.0            "/opt/xebialabs/tini…"   3 days ago          Up About an hour    0.0.0.0:4516->4516/tcp   devops-as-code-workshop_xl-deploy_1
     ```
 
 4. Deploy a more complex package:
 
     4.1. Import the example package:
 
-         ```bash
-         $ xl apply -f exercise-4/rest-o-rant-docker.yaml
-         ```
+    ```bash
+    $ xl apply -f exercise-4/rest-o-rant-docker.yaml
+    ```
 
     4.2. Open the [XL Deploy GUI](http://localhost:4516) and deploy version **1.1** of **rest-o-rant-api-docker** and **1.0** of **rest-o-rant-web-docker** to the **Local Docker Engine** environment.
 
     4.3. Verify that everything works by going to [http://localhost:8181](http://localhost:8181). Type "cow" in the search area to find the "Old Red Cow" restaurant.
 
 ### Import a pipeline, export an XL YAML file
+
+1. Open the [XL Deploy GUI](http://localhost:4516) and undeploy **rest-o-rant-api-docker** and **rest-o-rant-web-docker**.
+
+2. Import the pipeline:
+
+    ```bash
+    $ xl apply -f exercise-5/rest-o-rant-docker-pipeline.yaml
+    ```
+
+    2.1. Open the [XL Release GUI](http://localhost:5516), go to the **Design** tab, click the **REST-o-rant** folder, and go to **Templates**. Review the pipeline you've just imported and compare it to the XL YAML file.
+
+    2.2. Start a new release from that template and follow the instructions.
+
+3. Simplify the pipeline:
+
+    3.1 Open the [XL Deploy GUI](http://localhost:4516), go to **Applications/rest-o-rant-web-docker/1.0**. Set **Undeploy Unused Dependencies** to **true** and add the following to the Application Dependencies map:
+
+    |Key                   |Value|
+    |----------------------|-----|
+    |rest-o-rant-api-docker|1.1  |
+
+    3.2 Open the [XL Release GUI](http://localhost:5516). Go to the REST-o-rant on Docker pipeline template. Remove the Deploy REST-o-rant application backend task from the first phase and the Undeploy REST-o-rant application backend step from the last phase.
+
+    3.3 Run the pipeline to verify that everything works as intended.
+
+    3.4 Export the XL YAML files for the changes:
+
+    ```bash
+    $ xl export -s xl-deploy -p Applications/rest-o-rant-web-docker -f exercise-6/rest-o-rant-web-docker-with-dependencies.yaml
+    $ xl export -s xl-release -p REST-o-rant -f exercise-6/rest-o-rant-pipeline-with-dependencies.yaml
+    ```
+
+4. Export an XL YAML with deployment artifacts:
+
+    4.1. Open the [XL Deploy GUI](http://localhost:4516). Import **PetClinic-ear/1.0** from the XL Deploy server.
+
+    4.2. Export the XL YAML file for the package to see how to define artifacts:
+
+    ```bash
+    $ xl export -s xl-deploy -p Applications/PetClinic-ear/1.0 -f exercise-7/petlinic-ear.yaml
+    ```
+
+    4.3. Review the result.
