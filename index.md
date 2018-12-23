@@ -1,5 +1,5 @@
 # XL Deploy and XL Release: Introducing DevOps as code.
-## The developer-first approach to infrastructure and deployments
+## The developer-first approach to deployment automation
 ___
 
 Did you ever wish that deploying across multiple data centers and availability zones, pushing updates to hundreds of endpoints, and maintaining environment uniformity was a simple as writing a few lines of code?
