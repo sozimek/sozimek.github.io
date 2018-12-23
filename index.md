@@ -1,8 +1,8 @@
-# XL Release and XL Deploy: Introducing DevOps as code.
-# The developer-first approach to infrastructure and deployments
+# XL Deploy and XL Release: Introducing DevOps as code.
+## The developer-first approach to infrastructure and deployments
 ___
 
-Did you ever wish that reaching five-nines availability, deploying across multiple data centers and availability zones, and pushing updates to hundreds of endpoints was a simple as writing a few lines of code?
+Did you ever wish that deploying across multiple data centers and availability zones, pushing updates to hundreds of endpoints, and maintaining environment uniformity was a simple as writing a few lines of code?
 
 Good news.
 
@@ -11,7 +11,7 @@ XL Release and XL Deploy are here.
 ___
 
 ## What is DevOps as code?
-At XebiaLabs, we believe that developers shouldn't have to waste their time fiddling with deployments. As coders ourselves, we always wanted deployments and releases to be simple: write code, push it to a repository, and apply it as a part of a CI pipeline. This is why we built XL Release and XL Deploy - two tools that let you automate DevOps as you would anything else. Just define your:
+At XebiaLabs, we believe that developers shouldn't have to waste their time fiddling with deployments. As coders ourselves, we always wanted deployments and releases to be simple: write code, push it to a repository, and apply it as a part of a CI pipeline. This is why we built XL Deploy and XL Release - two tools that let you automate DevOps as you would anything else. Just define your:
 
 * deployment package,
 * infrastructure,
@@ -22,10 +22,18 @@ At XebiaLabs, we believe that developers shouldn't have to waste their time fidd
 
 as a YAML file and store it in the same repo where you keep your application code. Time to deploy? Just run a bash script from your terminal or use the XL web GUI.
 
+### XL Deploy
+
+XL Deploy is our deployment automation software. It works with Jenkins, Docker, Puppet, Kubernetes, Chef, Wildfly, and more. Thanks to our model-based approach, automated rollback, and agentless architecture, you can cut down the time you spend on admin, and focus on getting things done. Check out [our docs](https://docs.xebialabs.com/xl-deploy/index.html) to learn more.
+
+### XL Release
+
+XL Release helps you plan, track, and execute releases. Everything is based on templates, so you can automate the boring stuff away and minimize the potential for error. See [our docs](https://docs.xebialabs.com/xl-release/4.5.x/reference_manual.html) for more info.
+
 ___
 
 ## Try it out yourself
-Sounds to good to be true? Seeing is believing, and we believe that trying out the platform will rid you of your doubts. Follow the steps below to install the XL DevOps Platform workshop on your machine.
+Sounds to good to be true? Seeing is believing, and we believe that trying out the platform will rid you of your doubts. Follow the steps below to install the XL DevOps Platform workshop on your machine and try out its key features.
 
 ### Set things up
 
