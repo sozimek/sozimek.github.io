@@ -7,7 +7,7 @@ Did you ever wish that deploying across multiple data centers and availability z
 
 Good news.
 
-XL Release and XL Deploy are here.
+XL Deploy and XL Release are here.
 
 ___
 
