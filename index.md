@@ -11,7 +11,8 @@ XL Release and XL Deploy are here.
 ___
 
 ## What is DevOps as code?
-At XebiaLabs, we believe that developers shouldn't have to waste their time fiddling with deployments. As coders ourselves, we always wanted deployments and releases to be simple: write code, push it to a repository, and apply it as a part of our CI pipeline. This is why we built XL Release and XL Deploy - two tools that let you automate DevOps as you would anything else. Just define your:
+At XebiaLabs, we believe that developers shouldn't have to waste their time fiddling with deployments. As coders ourselves, we always wanted deployments and releases to be simple: write code, push it to a repository, and apply it as a part of a CI pipeline. This is why we built XL Release and XL Deploy - two tools that let you automate DevOps as you would anything else. Just define your:
+
 * deployment package,
 * infrastructure,
 * enviroment,
@@ -19,7 +20,7 @@ At XebiaLabs, we believe that developers shouldn't have to waste their time fidd
 * dashboard,
 * and anything else you want
 
-as a YAML file and store it in the same repo where you keep your application code. Time to deploy? Just run a bash script from your terminal.
+as a YAML file and store it in the same repo where you keep your application code. Time to deploy? Just run a bash script from your terminal or use the XL web GUI.
 
 ___
 
@@ -45,7 +46,7 @@ Sounds to good to be true? Seeing is believing, and we believe that trying out t
     devops-as-code-workshop_xl-cli_1 exited with code 0
     ```
 
-4. Open the XL Deploy GUI at http://localhost:4516/ and the XL Release GUI at http://localhost:5516/. The password and login for both are `admin`.
+4. Open the XL Deploy GUI at [http://localhost:4516/](http://localhost:4516) and the XL Release GUI at [http://localhost:5516/](http://localhost:5516/). The password and login for both are `admin`.
 
 5. Install the XL CLI.
 
@@ -69,9 +70,9 @@ Sounds to good to be true? Seeing is believing, and we believe that trying out t
 	 $ xl help
 	 ```
 
-### Perform and example deployment
+### Perform an example deployment
 
-1. Open the XL Deploy GUI at http://localhost:4516/ (thee password and login are `admin`). In the **Infrastructure** tree, go to the **local-docker** entry and run the **Check Connection** task.
+1. Open the XL Deploy GUI at [http://localhost:4516/](http://localhost:4516) (thee password and login are `admin`). In the **Infrastructure** tree, go to the **local-docker** entry and run the **Check Connection** task.
 
 2. Set up the environment:
 
@@ -79,8 +80,34 @@ Sounds to good to be true? Seeing is believing, and we believe that trying out t
 	$ cd devops-as-code-workshop-master
     $ xl apply -f exercise-2/docker-environment.yaml
     ```
-3. Deploy a package:
-
-    3.1. Bla bla
 
 
+3. Deploy a simple package:
+
+    3.1. Import the YAML package
+
+    ```bash
+    $ xl apply -f exercise-3/rest-o-rant-api-docker.yaml
+    ```
+    
+    3.2. Open the [XL Deploy GUI](http://localhost:4516) and deploy the **rest-o-rant-api-docker** application to the **Local Docker Engine** enrivonment.
+
+    3.3. Verify that the application is running:
+
+    ```bash
+    $ docker ps
+    ```
+
+4. Deploy a more complex package:
+
+    4.1. Import the example package:
+
+         ```bash
+         $ xl apply -f exercise-4/rest-o-rant-docker.yaml
+         ```
+
+    4.2. Open the [XL Deploy GUI](http://localhost:4516) and deploy version **1.1** of **rest-o-rant-api-docker** and **1.0** of **rest-o-rant-web-docker** to the **Local Docker Engine** environment.
+
+    4.3. Verify that everything works by going to [http://localhost:8181](http://localhost:8181). Type "cow" in the search area to find the "Old Red Cow" restaurant.
+
+### Import a pipeline, export an XL YAML file
